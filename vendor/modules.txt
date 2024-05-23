@@ -9,13 +9,22 @@ github.com/go-pay/crypto/xrsa
 # github.com/go-pay/errgroup v0.0.2
 ## explicit; go 1.20
 github.com/go-pay/errgroup
-# github.com/go-pay/gopay v1.5.100
-## explicit; go 1.20
+# github.com/go-pay/gopay v1.5.98
+## explicit; go 1.18
 github.com/go-pay/gopay
 github.com/go-pay/gopay/alipay
 github.com/go-pay/gopay/alipay/cert
 github.com/go-pay/gopay/allinpay/cert
+github.com/go-pay/gopay/pkg/aes
+github.com/go-pay/gopay/pkg/errgroup
 github.com/go-pay/gopay/pkg/jwt
+github.com/go-pay/gopay/pkg/retry
+github.com/go-pay/gopay/pkg/util
+github.com/go-pay/gopay/pkg/xhttp
+github.com/go-pay/gopay/pkg/xlog
+github.com/go-pay/gopay/pkg/xpem
+github.com/go-pay/gopay/pkg/xrsa
+github.com/go-pay/gopay/pkg/xtime
 github.com/go-pay/gopay/saobei/cert
 github.com/go-pay/gopay/wechat
 github.com/go-pay/gopay/wechat/v3

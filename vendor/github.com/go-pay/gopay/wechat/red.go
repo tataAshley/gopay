@@ -11,6 +11,7 @@ import (
 	"fmt"
 
 	"github.com/go-pay/gopay"
+	"github.com/go-pay/gopay/pkg/util"
 )
 
 // 发放现金红包
@@ -22,13 +23,13 @@ func (w *Client) SendCashRed(ctx context.Context, bm gopay.BodyMap) (wxRsp *Send
 	if err != nil {
 		return nil, err
 	}
-	if bm.GetString("wxappid") == gopay.NULL {
+	if bm.GetString("wxappid") == util.NULL {
 		bm.Set("wxappid", w.AppId)
 	}
-	if bm.GetString("mch_id") == gopay.NULL {
+	if bm.GetString("mch_id") == util.NULL {
 		bm.Set("mch_id", w.MchId)
 	}
-	if bm.GetString("sign") == gopay.NULL {
+	if bm.GetString("sign") == util.NULL {
 		sign := w.getReleaseSign(w.ApiKey, SignType_MD5, bm)
 		bm.Set("sign", sign)
 	}
@@ -54,13 +55,13 @@ func (w *Client) SendGroupCashRed(ctx context.Context, bm gopay.BodyMap) (wxRsp 
 		return nil, err
 	}
 
-	if bm.GetString("wxappid") == gopay.NULL {
+	if bm.GetString("wxappid") == util.NULL {
 		bm.Set("wxappid", w.AppId)
 	}
-	if bm.GetString("mch_id") == gopay.NULL {
+	if bm.GetString("mch_id") == util.NULL {
 		bm.Set("mch_id", w.MchId)
 	}
-	if bm.GetString("sign") == gopay.NULL {
+	if bm.GetString("sign") == util.NULL {
 		sign := w.getReleaseSign(w.ApiKey, SignType_MD5, bm)
 		bm.Set("sign", sign)
 	}
@@ -86,13 +87,13 @@ func (w *Client) SendAppletRed(ctx context.Context, bm gopay.BodyMap) (wxRsp *Se
 		return nil, err
 	}
 
-	if bm.GetString("wxappid") == gopay.NULL {
+	if bm.GetString("wxappid") == util.NULL {
 		bm.Set("wxappid", w.AppId)
 	}
-	if bm.GetString("mch_id") == gopay.NULL {
+	if bm.GetString("mch_id") == util.NULL {
 		bm.Set("mch_id", w.MchId)
 	}
-	if bm.GetString("sign") == gopay.NULL {
+	if bm.GetString("sign") == util.NULL {
 		sign := w.getReleaseSign(w.ApiKey, SignType_MD5, bm)
 		bm.Set("sign", sign)
 	}
@@ -118,13 +119,13 @@ func (w *Client) QueryRedRecord(ctx context.Context, bm gopay.BodyMap) (wxRsp *Q
 		return nil, err
 	}
 
-	if bm.GetString("appid") == gopay.NULL {
+	if bm.GetString("appid") == util.NULL {
 		bm.Set("appid", w.AppId)
 	}
-	if bm.GetString("mch_id") == gopay.NULL {
+	if bm.GetString("mch_id") == util.NULL {
 		bm.Set("mch_id", w.MchId)
 	}
-	if bm.GetString("sign") == gopay.NULL {
+	if bm.GetString("sign") == util.NULL {
 		sign := w.getReleaseSign(w.ApiKey, SignType_MD5, bm)
 		bm.Set("sign", sign)
 	}

@@ -9,7 +9,7 @@ import (
 	"net/http"
 
 	"github.com/go-pay/gopay"
-	"github.com/go-pay/xlog"
+	"github.com/go-pay/gopay/pkg/xlog"
 )
 
 type Resource struct {

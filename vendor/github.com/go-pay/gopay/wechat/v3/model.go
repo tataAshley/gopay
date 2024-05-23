@@ -122,10 +122,6 @@ type APPScoreQuery struct {
 	Sign      string `json:"sign"`
 }
 
-type AppletScorePartnerExtraData struct {
-	Package string `json:"package"`
-}
-
 // ==================================分割==================================
 
 type SignInfo struct {

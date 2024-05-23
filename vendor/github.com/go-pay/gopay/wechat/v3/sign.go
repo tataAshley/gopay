@@ -14,11 +14,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-pay/crypto/xpem"
 	"github.com/go-pay/gopay"
-	"github.com/go-pay/util"
-	"github.com/go-pay/util/convert"
-	"github.com/go-pay/xlog"
+	"github.com/go-pay/gopay/pkg/util"
+	"github.com/go-pay/gopay/pkg/xlog"
+	"github.com/go-pay/gopay/pkg/xpem"
 )
 
 // Deprecated
@@ -60,7 +59,7 @@ func V3VerifySignByPK(timestamp, nonce, signBody, sign string, wxPublicKey *rsa.
 // PaySignOfJSAPI 获取 JSAPI 支付所需要的参数
 // 文档：https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/jsapi-transfer-payment.html
 func (c *ClientV3) PaySignOfJSAPI(appid, prepayid string) (jsapi *JSAPIPayParams, err error) {
-	ts := convert.Int642String(time.Now().Unix())
+	ts := util.Int642String(time.Now().Unix())
 	nonceStr := util.RandomString(32)
 	pkg := "prepay_id=" + prepayid
 
@@ -84,7 +83,7 @@ func (c *ClientV3) PaySignOfJSAPI(appid, prepayid string) (jsapi *JSAPIPayParams
 // PaySignOfApp 获取 App 支付所需要的参数
 // 文档：https://pay.weixin.qq.com/docs/merchant/apis/in-app-payment/app-transfer-payment.html
 func (c *ClientV3) PaySignOfApp(appid, prepayid string) (app *AppPayParams, err error) {
-	ts := convert.Int642String(time.Now().Unix())
+	ts := util.Int642String(time.Now().Unix())
 	nonceStr := util.RandomString(32)
 
 	_str := appid + "\n" + ts + "\n" + nonceStr + "\n" + prepayid + "\n"
@@ -129,7 +128,7 @@ func (c *ClientV3) PaySignOfAppScore(mchId, pkg string) (query *APPScoreQuery, e
 	var (
 		buffer   strings.Builder
 		h        hash.Hash
-		ts       = convert.Int642String(time.Now().Unix())
+		ts       = util.Int642String(time.Now().Unix())
 		nonceStr = util.RandomString(32)
 	)
 	buffer.WriteString("mch_id=")
@@ -164,7 +163,7 @@ func (c *ClientV3) PaySignOfJSAPIScore(mchId, pkg string) (queryString *JSAPISco
 	var (
 		buffer   strings.Builder
 		h        hash.Hash
-		ts       = convert.Int642String(time.Now().Unix())
+		ts       = util.Int642String(time.Now().Unix())
 		nonceStr = util.RandomString(32)
 	)
 	buffer.WriteString("mch_id=")
@@ -199,7 +198,7 @@ func (c *ClientV3) PaySignOfAppletScore(mchId, pkg string) (extraData *AppletSco
 	var (
 		buffer   strings.Builder
 		h        hash.Hash
-		ts       = convert.Int642String(time.Now().Unix())
+		ts       = util.Int642String(time.Now().Unix())
 		nonceStr = util.RandomString(32)
 	)
 	buffer.WriteString("mch_id=")
@@ -239,7 +238,7 @@ func (c *ClientV3) authorization(method, path string, bm gopay.BodyMap) (string,
 		jb = bm.JsonBody()
 	}
 	path = strings.TrimSuffix(path, "?")
-	ts := convert.Int642String(timestamp)
+	ts := util.Int642String(timestamp)
 	_str := method + "\n" + path + "\n" + ts + "\n" + nonceStr + "\n" + jb + "\n"
 	if c.DebugSwitch == gopay.DebugOn {
 		xlog.Debugf("Wechat_V3_SignString:\n%s", _str)
@@ -259,7 +258,7 @@ func (c *ClientV3) rsaSign(str string) (string, error) {
 	h.Write([]byte(str))
 	result, err := rsa.SignPKCS1v15(rand.Reader, c.privateKey, crypto.SHA256, h.Sum(nil))
 	if err != nil {
-		return gopay.NULL, fmt.Errorf("[%w]: %+v", gopay.SignatureErr, err)
+		return util.NULL, fmt.Errorf("[%w]: %+v", gopay.SignatureErr, err)
 	}
 	return base64.StdEncoding.EncodeToString(result), nil
 }

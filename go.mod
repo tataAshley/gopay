@@ -1,4 +1,4 @@
-module github.com/go-pay/gopay
+module github.com/tataAshley/gopay
 
 go 1.20
 

@@ -12,7 +12,7 @@ import (
 // SubscriptionExtend Extends the renewal date of a customer’s active subscription using the original transaction identifier.
 // Doc: https://developer.apple.com/documentation/appstoreserverapi/extend_a_subscription_renewal_date
 func (c *Client) SubscriptionExtend(ctx context.Context, transactionId string, bm gopay.BodyMap) (rsp *SubscriptionsExtendRsp, err error) {
-	path := fmt.Sprintf(getAllSubscriptionStatuses, transactionId)
+	path := fmt.Sprintf(SubscriptionExtend, transactionId)
 
 	res, bs, err := c.doRequestPut(ctx, path, bm)
 	if err != nil {

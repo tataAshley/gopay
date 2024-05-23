@@ -13,6 +13,9 @@ const (
 	// Get All Subscription Statuses
 	getAllSubscriptionStatuses = "/inApps/v1/subscriptions/%s" // transactionId
 
+	// SubscriptionExtend Extend a Subscription Renewal Date
+	SubscriptionExtend = "/inApps/v1/subscriptions/extend/%s" // transactionId
+
 	// Send Consumption Information
 	sendConsumptionInformation = "/inApps/v1/transactions/consumption/%s" // transactionId
 

@@ -1,0 +1,29 @@
+# github.com/go-pay/bm v0.0.2
+## explicit; go 1.20
+github.com/go-pay/bm
+# github.com/go-pay/crypto v0.0.1
+## explicit; go 1.20
+github.com/go-pay/crypto/aes
+github.com/go-pay/crypto/xpem
+github.com/go-pay/crypto/xrsa
+# github.com/go-pay/errgroup v0.0.2
+## explicit; go 1.20
+github.com/go-pay/errgroup
+# github.com/go-pay/util v0.0.2
+## explicit; go 1.20
+github.com/go-pay/util
+github.com/go-pay/util/convert
+github.com/go-pay/util/retry
+# github.com/go-pay/xhttp v0.0.2
+## explicit; go 1.20
+github.com/go-pay/xhttp
+# github.com/go-pay/xlog v0.0.2
+## explicit; go 1.20
+github.com/go-pay/xlog
+# github.com/go-pay/xtime v0.0.2
+## explicit; go 1.20
+github.com/go-pay/xtime
+# golang.org/x/crypto v0.23.0
+## explicit; go 1.18
+golang.org/x/crypto/pkcs12
+golang.org/x/crypto/pkcs12/internal/rc2

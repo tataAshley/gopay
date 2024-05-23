@@ -31,8 +31,7 @@ func TestMain(m *testing.M) {
 	// kid：private key ID
 	// privateKey：私钥文件读取后的字符串内容
 	// isProd：是否是正式环境
-	privateKey := "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgd1DJnHHzwfde6Uj2\nPhqDPROWPPkggRjVc/h26TJNscygCgYIKoZIzj0DAQehRANCAAQX27G/0KviDKd7\nb8pBdXRsIhNGTYhCQGMqOz6pN7e3lPYN4N6xn0deb77d14BBxwuPXUZAVb9I+c/0\nFAFh4Mbx\n-----END PRIVATE KEY-----"
-
+	privateKey := ""
 	client, err = NewClient(iss, bid, kid, privateKey, false)
 	if err != nil {
 		xlog.Error(err)
